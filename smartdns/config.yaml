@@ -1,0 +1,29 @@
+name: SmartDNS
+version: "1.0.0"
+slug: smartdns
+description: 基于 SmartDNS 的本地 DNS 加速/过滤服务（Home Assistant 本地 Add-on）
+url: https://github.com/your-repo/hass-io-addons/tree/main/smartdns
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+init: false
+startup: services
+host_network: true
+privileged:
+  - NET_ADMIN
+options:
+  log_level: "info"
+  config_path: "/etc/smartdns/smartdns.conf"
+schema:
+  log_level: "list(debug|info|note|warning|error|fatal)"
+  config_path: "str?"
+watchdog: "tcp://[HOST]:[PORT:53]"
+ports:
+  "53/udp": 53
+  "53/tcp": 53
+ports_description:
+  "53/udp": "SmartDNS 监听的 UDP 53 端口，用于处理 DNS 请求"
+  "53/tcp": "SmartDNS 监听的 TCP 53 端口，用于处理 DNS 请求"
