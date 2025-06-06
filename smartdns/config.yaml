@@ -20,7 +20,6 @@ options:
 schema:
   log_level: "list(debug|info|note|warning|error|fatal)"
   config_path: "str?"
-watchdog: "tcp://[HOST]:[PORT:53]"
 ports:
   "53/udp": 53
   "53/tcp": 53
