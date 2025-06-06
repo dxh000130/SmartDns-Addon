@@ -9,7 +9,7 @@ LABEL maintainer="you@example.com"
 LABEL description="Home Assistant Add-on: SmartDNS v1.2025.03.02-1533（预编译包，自动识别 ARM/Intel）"
 
 # 安装 curl、tar、find 等工具（find 在 BusyBox 内置，无需额外安装）
-RUN apk add --no-cache curl tar
+RUN apk add --no-cache curl tar jq
 
 # 固定 SmartDNS 版本号，与官方发布包名保持一致
 ARG SMARTDNS_VER=1.2025.03.02-1533
